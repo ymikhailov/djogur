@@ -1,0 +1,64 @@
+{% extends "main/base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Дьогур 2017</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/users/">Рейтинг</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" role="form" action="." method="post">
+            {% csrf_token %}
+            {% if has_error %}
+              <div class="form-group alert alert-danger alert-dismissible" role="alert" style="padding-top: 6px; padding-bottom: 6px">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                {{ error_message }}
+              </div>
+            {% endif %}
+            <div class="form-group">
+              <input name="username" type="text" placeholder="Логин" class="form-control">
+            </div>
+            <div class="form-group">
+              <input name="password" type="password" placeholder="Пароль" class="form-control">
+            </div>
+            <button name="login" type="submit" class="btn btn-success">Войти</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <div class="container">
+        <h4>Летний математический лагерь на базе МБОУ "Нюрбинский технический лицей"</h4>
+        <p>Онлайн платформа для участников лагеря Дьогур 2017</p>
+        <ul style="font-size: 18px">
+          <li>Сборник задач по олимпиадной математике</li>
+          <li>Внутренняя система электронных денег</li>
+          <li>Рейтинг участников лагеря</li>
+        </ul>
+        <br>
+        <a href="{% static 'main/apk/DjogurMoney.apk' %}" class="btn btn-warning" role="button">Скачать приложение</a>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <hr style="border-color:black">
+
+      <footer>
+        <p>&copy; Дьогур 2017</p>
+      </footer>
+
+    </div>
+{% endblock %}

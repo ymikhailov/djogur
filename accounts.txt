@@ -1,0 +1,2 @@
+FI Вася Пупкин - pupkin : pupkinpassword
+SE Иванова Маша - ivanova : ivanovapassword
